@@ -1,1 +1,0 @@
-/home/arismarkogi/kaldi/egs/timit/s5/local/timit_format_data.sh
