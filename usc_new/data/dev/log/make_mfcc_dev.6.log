@@ -1,0 +1,28 @@
+# compute-mfcc-feats --write-utt2dur=ark,t:data/dev/log/utt2dur.6 --verbose=2 --config=conf/mfcc.conf scp,p:data/dev/log/wav_dev.6.scp ark:- | copy-feats --write-num-frames=ark,t:data/dev/log/utt2num_frames.6 --compress=true ark:- ark,scp:/home/arismarkogi/kaldi/egs/usc/data/dev/data/raw_mfcc_dev.6.ark,/home/arismarkogi/kaldi/egs/usc/data/dev/data/raw_mfcc_dev.6.scp 
+# Started at Sat Apr 27 18:36:16 EEST 2024
+#
+copy-feats --write-num-frames=ark,t:data/dev/log/utt2num_frames.6 --compress=true ark:- ark,scp:/home/arismarkogi/kaldi/egs/usc/data/dev/data/raw_mfcc_dev.6.ark,/home/arismarkogi/kaldi/egs/usc/data/dev/data/raw_mfcc_dev.6.scp 
+compute-mfcc-feats --write-utt2dur=ark,t:data/dev/log/utt2dur.6 --verbose=2 --config=conf/mfcc.conf scp,p:data/dev/log/wav_dev.6.scp ark:- 
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_257
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_269
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_282
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_294
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_307
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_319
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_332
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_344
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_357
+LOG (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:181) Processed 10 utterances
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_369
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_382
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_394
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_407
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_419
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_432
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_444
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m1_457
+VLOG[2] (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:182) Processed features for key m3_002
+LOG (compute-mfcc-feats[5.5.1126~1-8c451]:main():compute-mfcc-feats.cc:185)  Done 18 out of 18 utterances.
+LOG (copy-feats[5.5.1126~1-8c451]:main():copy-feats.cc:143) Copied 18 feature matrices.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Sat Apr 27 18:36:17 EEST 2024, elapsed time 1 seconds
