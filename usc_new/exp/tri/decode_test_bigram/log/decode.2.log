@@ -1,0 +1,196 @@
+# gmm-latgen-faster --max-active=7000 --beam=13.0 --lattice-beam=6.0 --acoustic-scale=0.083333 --allow-partial=true --word-symbol-table=exp/tri/graph_bigram/words.txt exp/tri/final.mdl exp/tri/graph_bigram/HCLG.fst "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/2/utt2spk scp:data/test/split4/2/cmvn.scp scp:data/test/split4/2/feats.scp ark:- | add-deltas  ark:- ark:- |" "ark:|gzip -c > exp/tri/decode_test_bigram/lat.2.gz" 
+# Started at Sun Apr 28 09:59:40 EEST 2024
+#
+gmm-latgen-faster --max-active=7000 --beam=13.0 --lattice-beam=6.0 --acoustic-scale=0.083333 --allow-partial=true --word-symbol-table=exp/tri/graph_bigram/words.txt exp/tri/final.mdl exp/tri/graph_bigram/HCLG.fst 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/2/utt2spk scp:data/test/split4/2/cmvn.scp scp:data/test/split4/2/feats.scp ark:- | add-deltas  ark:- ark:- |' 'ark:|gzip -c > exp/tri/decode_test_bigram/lat.2.gz' 
+add-deltas ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/2/utt2spk scp:data/test/split4/2/cmvn.scp scp:data/test/split4/2/feats.scp ark:- 
+f5_001 sil d ih s w ih z iy z iy p er ah s sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_001 is -7.36908 over 249 frames.
+f5_006 sil w ay y eh l er w ao r iy ow v ah s ih l iy ay t ah n z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_006 is -7.62933 over 325 frames.
+f5_011 sil w ih ng y uh r m ah s hh ay s iy t ae n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_011 is -7.42776 over 301 frames.
+f5_016 sil ae l ah m ah n iy k aa r m z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_016 is -8.26948 over 368 frames.
+f5_021 sil l eh r z b l ah v n ah l iy n er z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_021 is -7.50256 over 301 frames.
+f5_026 sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_026 is -8.30736 over 187 frames.
+f5_031 sil aa r d s k ah l g r eh jh uw ey sh ah n p eh s ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_031 is -7.67096 over 391 frames.
+f5_036 sil iy n eh n t er t ey n ih ng s f ao r t sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_036 is -7.58236 over 348 frames.
+f5_041 sil eh m dh iy m ao r sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_041 is -7.82545 over 364 frames.
+f5_046 sil dh iy p r aa l ah w ao r ah s k iy v ae s k f r t ih s k ay z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_046 is -7.50404 over 354 frames.
+f5_051 sil eh n iy k aa r ey l iy p r ih sh iy d ah d sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_051 is -7.85012 over 393 frames.
+f5_056 sil dh ae s t er z k ae s sh ao r d ih ch k aa t s t iy p r iy s t ih ng k r iy s ah z sil sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_056 is -7.60213 over 446 frames.
+f5_061 sil s t ah s t l iy w ih z m z p l ey s t ah n dh iy s k r iy n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_061 is -7.43344 over 377 frames.
+f5_066 sil t uw f r iy l iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_066 is -7.96252 over 335 frames.
+f5_071 sil k w aa p er ih sh ah n ah l ah n d er z d ae n ih ng l iy v iy d ih s p y uw t sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_071 is -7.64401 over 448 frames.
+f5_076 sil ih ng k er ih z ah f ey m ah s k ah l ch er sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_076 is -7.37573 over 309 frames.
+f5_081 sil dh ae s k er iy p aa r t iy z t ae k s w ey sh ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_081 is -7.66702 over 373 frames.
+f5_086 sil n t eh k r ey ao l ah hh ao l ah d ey ih z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_086 is -7.75016 over 495 frames.
+f5_091 sil s t ae p s t r iy hh ae n hh er hh ao l w iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_091 is -7.87313 over 318 frames.
+f5_096 sil hh ih s eh n d ah p aa r t er sh ao dh iy k ae s t sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_096 is -7.59018 over 334 frames.
+f5_101 sil w ih s k r uw ah t ae n d sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_101 is -7.67696 over 302 frames.
+f5_106 sil k eh s t eh s ih ng ih z f r ah b ih n ah n s ah b iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_106 is -7.69802 over 388 frames.
+f5_111 sil aa r t ih f ih sh ah l eh n t eh l ah jh ah n z ih z f r r iy l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_111 is -7.54572 over 318 frames.
+f5_116 sil eh l d ih n uw b eh v f r ih jh p l iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_116 is -7.69817 over 326 frames.
+f5_121 sil s ay n t uw k ah n d ih v eh l m ah n ah z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_121 is -7.63407 over 496 frames.
+f5_126 sil w ih ch l ah m aa r d ih k ah l w ao z ah p iy k ah n iy d k l er f ih k ey sh ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_126 is -7.71057 over 451 frames.
+f5_131 sil k r eh k t ih k s ih k y uw sh ah n ah m ay n s t r k sh ah n z ih s k ow sh ah l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_131 is -7.63119 over 403 frames.
+f5_136 sil dh iy s k iy t ah z ih g z ih s t ih n d w ao r m t k l ay m t s sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_136 is -7.67425 over 370 frames.
+f5_141 sil ch er w ih th dh iy p eh r iy s er z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_141 is -7.5531 over 366 frames.
+f5_146 sil hh aa r aa p r ah n hh eh r ah m ay n t ih m f ao z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_146 is -7.46098 over 398 frames.
+f5_151 sil aw n dh iy b ay iy n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_151 is -7.31861 over 304 frames.
+f5_156 sil w eh v er k w aa p r iy f ah n f ay n ih ng ih n ae n s k ae m iy ah l ah b iy w ao r d ah d sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_156 is -7.48165 over 500 frames.
+f5_161 sil w ih k uw b eh r l iy s iy t ah l er iy z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_161 is -7.46286 over 443 frames.
+f5_166 sil m ey aw t ao l w ey m ay iy er z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_166 is -7.39655 over 336 frames.
+f5_171 sil ih z jh oy iy eh v er iy f ay l b er l ey t ih t uw m ay ah z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_171 is -7.50271 over 374 frames.
+f5_176 sil dh iy ih n jh oy iy w ih n ay ah n t ih sh ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_176 is -7.07819 over 282 frames.
+f5_181 sil ch ow n t ih n t ey jh ih s t uw z iy z ah z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_181 is -7.55167 over 465 frames.
+f5_186 sil iy v ih n ay k y ah m ah n d ey b l n z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_186 is -7.42784 over 352 frames.
+f5_191 sil m ay k ah l k ao l ah d dh iy b ae t uw m ao l w ih k r ay ah n z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_191 is -7.27953 over 383 frames.
+f5_196 sil dh iy s er m ah n ae m th ih s ay z d eh n iy d f er f er m ah n ah v ae k sh ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_196 is -7.28068 over 428 frames.
+f5_201 sil k ao r ey t ae k dh iy p r aa jh eh k dh iy k ae k s t r ah t er m ah n ey sh ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_201 is -7.40037 over 415 frames.
+f5_206 sil sil s t ah v er hh ae n d ah l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_206 is -7.60233 over 417 frames.
+f5_211 sil hh aw ey ah f r iy w ey m iy n s ey m ih ng sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_211 is -7.10356 over 329 frames.
+f5_216 sil aa k t er w ao z ah n dh iy ah m b iy ah dh iy p ey sh ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_216 is -7.31502 over 379 frames.
+f5_221 sil ch ah n z ih s ah b oy ao s k ah l iy d er sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_221 is -7.48238 over 339 frames.
+f5_226 sil dh iy k ao r jh ah s p ah p l eh l aa t er sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_226 is -7.58149 over 364 frames.
+f5_231 sil iy r ow k ah n t eh v er iy m ah n d ey iy v n ih ng sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_231 is -7.57193 over 302 frames.
+f5_236 sil hh ow l iy t iy l ih k t er s ae l ah jh ah s ih ng sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_236 is -7.51362 over 356 frames.
+f5_241 sil dh iy jh aa t b r ey t s p ay iy z ih ng ae n t ay d ih n ih s t ah m ao s ah l z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_241 is -7.60652 over 406 frames.
+f5_246 sil ih ng g r iy b oy iy ae v er d sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_246 is -7.3729 over 340 frames.
+f5_251 sil f er d er hh ih s p r s iy sh iy k iy t uw l iy r iy g ow l ey jh er n ah l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_251 is -7.57724 over 520 frames.
+f5_256 sil p l ih n t ao r d ih n ih z ey sh ah m ow b r k ah n t r ah l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_256 is -7.57689 over 433 frames.
+f5_261 sil l aa sh ah z er b eh r iy iy s l iy ae d ah l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_261 is -7.55658 over 410 frames.
+f5_266 sil sh uh d r ae t s p iy k ae t t ah n s w ao l z uw z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_266 is -7.35564 over 333 frames.
+f5_271 sil ah m iy b ih z ch ey n sh ey t k aa l iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_271 is -7.48161 over 314 frames.
+f5_276 sil ch ow z k ah f y uw w ao l k ah n t ah n er ah l z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_276 is -7.58668 over 321 frames.
+f5_281 sil m ay d ih z ae er z ah s ah m p ah l k ih v iy w ay n d f ao r m ih k er k r ae f sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_281 is -7.62676 over 565 frames.
+f5_286 sil ch iy s ih s k ae k s m er s l l iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_286 is -7.6019 over 319 frames.
+f5_291 sil ah l ah th er hh ae m b ae g w ih b iy ah s uw p ah l g eh f t sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_291 is -7.63676 over 368 frames.
+f5_296 sil ae l ah s iy v ih jh oy n p oy m ah n dh iy b ay eh l eh ch iy ae n ih n jh ah n ih r ih ng d ah p er ah m ah n z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_296 is -7.56086 over 575 frames.
+f5_301 sil t aa t p l ey z t aa p r eh r ah t iy ah b ay k sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_301 is -7.613 over 425 frames.
+f5_306 sil m er k y uw d w ih d ih n w aa n d er r aa m f r m ay l z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_306 is -7.33896 over 433 frames.
+f5_311 sil dh iy f r eh t ih ch ay l d uw b ay er sil sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_311 is -7.59616 over 458 frames.
+f5_316 sil dh iy p r iy z k ah l er k ah d ah f er b ah l ay s ih f iy l ih ng z w aa p y uw m er z d ih sh ah n z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_316 is -7.93019 over 457 frames.
+f5_321 sil ah l eh r w ao z ah p oy n t ih t ae k s k y uw hh er w eh l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_321 is -7.59791 over 377 frames.
+f5_326 sil dh iy s ih s t uw m ey b r ey aw n s ih n s ih s ey d er f ay l z f r iy k w ih l iy sil sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_326 is -7.55776 over 481 frames.
+f5_331 sil dh iy k ah n m ah n k ae k ao r d ih g eh m p oy d f r ih th r iy aw er z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_331 is -7.54399 over 487 frames.
+f5_336 sil ah n oy ih z p r aa g r ih z n w ao r n oy ih ng iy ch s t iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_336 is -7.37973 over 396 frames.
+f5_341 sil w ih m ih m ey n eh v er b ah k ah m k ah m p l iy v iy k ah l d s ah n ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_341 is -7.37245 over 420 frames.
+f5_346 sil w iy w ao l k ah m eh n iy n uw s t ih n s iy ch iy er sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_346 is -7.31164 over 360 frames.
+f5_351 sil w eh sh ah p ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_351 is -7.52682 over 341 frames.
+f5_356 sil dh ey eh l ay t sil dh iy ao l ay k 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_356 is -7.96276 over 219 frames.
+f5_361 sil t ih n t uw z sh iy l iy t ih s iy m uw d iy s ch ay s ah l iy k sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_361 is -7.68531 over 372 frames.
+f5_366 sil n s ah s ah p ah l iy s k r ao s ah z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_366 is -7.55282 over 405 frames.
+f5_371 sil r ay d dh iy s ah b oy p ah hh ae v ey n jh sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_371 is -7.42162 over 396 frames.
+f5_376 sil w aa r b iy er ch ah d l aa r d w ah n d ih l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_376 is -7.57799 over 351 frames.
+f5_381 sil g r iy s iy n y uw ch ey n b iy sh er d uw w aa sh s p eh r l iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_381 is -7.38356 over 463 frames.
+f5_386 sil dh iy k r ae d ch ae l ah n jh m ey ih k s t ae v ih ng k w ih sh t ih m sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_386 is -7.61561 over 421 frames.
+f5_391 sil iy t s t ae d sh er l iy p ay n z ah d ih g aa n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_391 is -7.37369 over 321 frames.
+f5_396 sil dh iy ae b ay z ih ng b er s ah v er ay d iy s t ao r n eh v er ch ey n jh ih z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_396 is -7.61463 over 518 frames.
+f5_401 sil ah l aa r jh er k l ae m p s ah l s dh iy p r ow b l ah m sil sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_401 is -7.74506 over 394 frames.
+f5_406 sil dh iy f ih k ae l m f ao r s ih z n ih r l iy ow v er w ao ng b ah d ae ch ow n z iy z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_406 is -7.41796 over 512 frames.
+f5_411 sil aa r m ah l ah t sil aa r m ah n ay z m ao r ah v ah l ah s l iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_411 is -7.95294 over 433 frames.
+f5_416 sil dh ae p ih p aa k ih k aa r eh n hh ae n d ih d sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_416 is -7.34243 over 339 frames.
+f5_421 sil k aa s ch ah n d ah k w ay k ah l ih f ah l sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_421 is -7.33201 over 332 frames.
+f5_426 sil dh iy iy z iy k ah n z ih l aa l ah jh ah s r iy aa t sil dh iy iy z ey 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_426 is -8.02945 over 335 frames.
+f5_431 sil ao r d n ih z ey sh ah n d er ah z er z sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_431 is -7.44984 over 427 frames.
+LOG (apply-cmvn[5.5.1126~1-8c451]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 92 utterances, errors on 0
+f5_436 sil hh er p s p er s t ey f r k ah l iy k r z aa n d ih ng s k ih v ih ng sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_436 is -7.49865 over 405 frames.
+f5_441 sil r aa k ah m ah m y uw z ah k aa z ah g r ey ah m sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_441 is -7.32632 over 325 frames.
+f5_446 sil dh iy s p iy ch s ah m p ow z iy m ay b ih g ae n ah m ah n d iy sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_446 is -7.09218 over 398 frames.
+f5_451 sil sil uw m eh n iy f er r ah l ah n m ah n s ih n ih ng sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_451 is -7.73078 over 533 frames.
+f5_456 sil ah m ao l z ih g dh ae b ih l aa n dh iy p ae f th r uw ao t ih z k aa r d ah n sil 
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:375) Log-like per frame for utterance f5_456 is -7.47833 over 434 frames.
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:main():gmm-latgen-faster.cc:176) Time taken 41.4462s: real-time factor assuming 100 frames/sec is 0.116835
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:main():gmm-latgen-faster.cc:179) Done 92 utterances, failed for 0
+LOG (gmm-latgen-faster[5.5.1126~1-8c451]:main():gmm-latgen-faster.cc:181) Overall log-likelihood per frame is -7.55753 over 35474 frames.
+# Accounting: time=41 threads=1
+# Ended (code 0) at Sun Apr 28 10:00:21 EEST 2024, elapsed time 41 seconds

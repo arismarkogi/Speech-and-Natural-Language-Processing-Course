@@ -1,0 +1,5 @@
+# cat exp/tri/decode_dev_unigram/scoring_kaldi/penalty_1.0/14.txt | compute-wer --text --mode=present ark:exp/tri/decode_dev_unigram/scoring_kaldi/test_filt.txt ark,p:- >& exp/tri/decode_dev_unigram/wer_14_1.0 
+# Started at Sun Apr 28 09:58:25 EEST 2024
+#
+# Accounting: time=1 threads=1
+# Ended (code 0) at Sun Apr 28 09:58:26 EEST 2024, elapsed time 1 seconds
