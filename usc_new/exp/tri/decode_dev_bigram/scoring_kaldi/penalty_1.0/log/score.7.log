@@ -1,5 +1,0 @@
-# cat exp/tri/decode_dev_bigram/scoring_kaldi/penalty_1.0/7.txt | compute-wer --text --mode=present ark:exp/tri/decode_dev_bigram/scoring_kaldi/test_filt.txt ark,p:- >& exp/tri/decode_dev_bigram/wer_7_1.0 
-# Started at Sun Apr 28 09:59:39 EEST 2024
-#
-# Accounting: time=0 threads=1
-# Ended (code 0) at Sun Apr 28 09:59:39 EEST 2024, elapsed time 0 seconds

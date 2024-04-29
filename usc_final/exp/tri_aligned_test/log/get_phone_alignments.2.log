@@ -1,7 +1,0 @@
-# set -o pipefail && ali-to-phones --write-lengths=true exp/tri_aligned_test/final.mdl "ark:gunzip -c exp/tri_aligned_test/ali.2.gz|" ark,t:- | sed -E "s/^[^ ]+ //" | awk 'BEGIN{FS=" ; "; OFS="\n";} {print "begin " $1; if (NF>1) print "end " $NF; for (n=1;n<=NF;n++) print "all " $n; }' | sort | uniq -c | gzip -c > exp/tri_aligned_test/phone_stats.2.gz 
-# Started at Mon Apr 29 12:50:54 EEST 2024
-#
-ali-to-phones --write-lengths=true exp/tri_aligned_test/final.mdl 'ark:gunzip -c exp/tri_aligned_test/ali.2.gz|' ark,t:- 
-LOG (ali-to-phones[5.5.1126~1-8c451]:main():ali-to-phones.cc:134) Done 88 utterances.
-# Accounting: time=0 threads=1
-# Ended (code 0) at Mon Apr 29 12:50:54 EEST 2024, elapsed time 0 seconds
