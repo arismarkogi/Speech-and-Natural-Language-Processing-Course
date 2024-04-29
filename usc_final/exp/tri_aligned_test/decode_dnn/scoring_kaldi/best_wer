@@ -1,0 +1,1 @@
+%WER -nan [ 0 / 0, 0 ins, 0 del, 0 sub ] [PARTIAL] ./exp/tri_aligned_test/decode_dnn/wer_1_0.0

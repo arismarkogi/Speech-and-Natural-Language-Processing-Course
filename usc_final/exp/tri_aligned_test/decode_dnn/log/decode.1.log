@@ -1,0 +1,6 @@
+# latgen-faster-mapped --min-active=200 --max-active=7000 --max-mem=50000000 --beam=13.0 --lattice-beam=8.0 --acoustic-scale=0.2 --allow-partial=true --word-symbol-table=./exp/tri/graph_bigram/words.txt ./exp/tri_aligned_test/final.mdl ./exp/tri/graph_bigram/HCLG.fst "ark,s,cs:cat ./ddn/dnn_out/posteriors.ark |" "ark:|gzip -c > ./exp/tri_aligned_test/decode_dnn/lat.1.gz" 
+# Started at Sun Apr 28 19:21:31 EEST 2024
+#
+latgen-faster-mapped --min-active=200 --max-active=7000 --max-mem=50000000 --beam=13.0 --lattice-beam=8.0 --acoustic-scale=0.2 --allow-partial=true --word-symbol-table=./exp/tri/graph_bigram/words.txt ./exp/tri_aligned_test/final.mdl ./exp/tri/graph_bigram/HCLG.fst 'ark,s,cs:cat ./ddn/dnn_out/posteriors.ark |' 'ark:|gzip -c > ./exp/tri_aligned_test/decode_dnn/lat.1.gz' 
+# Accounting: time=0 threads=1
+# Ended (code 139) at Sun Apr 28 19:21:31 EEST 2024, elapsed time 0 seconds
