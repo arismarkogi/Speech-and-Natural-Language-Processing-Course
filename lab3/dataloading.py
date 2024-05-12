@@ -1,6 +1,9 @@
+import torch
 from torch.utils.data import Dataset
 from tqdm import tqdm
-import nltk
+import numpy as np
+import nltk 
+nltk.download('punkt')
 
 class SentenceDataset(Dataset):
     """
@@ -34,7 +37,7 @@ class SentenceDataset(Dataset):
         self.data = X
         self.labels = y
         self.word2idx = word2idx
-        self.tokenized_data = [word_tokenize(sentence) for sentence in self.data]
+        self.tokenized_data = [nltk.word_tokenize(sentence) for sentence in self.data]
         self.max_length = 15
         print(self.tokenized_data[:10])
         # EX2
@@ -74,12 +77,25 @@ class SentenceDataset(Dataset):
                 example = [  533  3908  1387   649   0     0     0     0]
                 label = 1
                 length = 4
-        """
-
-        # EX3
+            """
+        # Tokenize sentence
         example = self.tokenized_data[index]
-        label = self.labels[index]
-        length = len(example)
-        example = (example + [0 for x in range(self.max_length-length)]) if length < self.max_length else example[:length]
-        return example, label, length
 
+        # Convert words to indices
+        indexed_example = [self.word2idx[word] if word in self.word2idx else self.word2idx["<unk>"] for word in example]
+
+        # Pad or truncate to max_length
+        if len(indexed_example) < self.max_length:
+            indexed_example += [0] * (self.max_length - len(indexed_example))
+        else:
+            indexed_example = indexed_example[:self.max_length]
+
+        # Convert to tensor
+        example_tensor = torch.tensor(indexed_example)
+
+        # Get label
+        label = self.labels[index]
+
+        # Get length
+        length = len(example)
+        return example_tensor, label, length

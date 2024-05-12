@@ -34,16 +34,18 @@ def train_dataset(_epoch, dataloader, model, loss_function, optimizer):
 
     # obtain the model's device ID
     device = next(model.parameters()).device
-
+    
     for index, batch in enumerate(dataloader, 1):
         # get the inputs (batch)
         inputs, labels, lengths = batch
 
-        # move the batch tensors to the right device
+        # Move the batch tensor to the right device
+        #inputs = inputs.to(device)
+        
         inputs = inputs.to(device)
         labels = labels.to(device)
         lengths = lengths.to(device)  # EX9
-
+       
         # Step 1 - zero the gradients
         # Remember that PyTorch accumulates gradients.
         # We need to clear them out before each batch!
@@ -101,33 +103,36 @@ def eval_dataset(dataloader, model, loss_function):
             inputs, labels, lengths = batch
 
             # Step 1 - move the batch tensors to the right device
-            inputs = inputs.to(device)  
-			labels = labels.to(device)
-			lengths = lengths.to(device)
+            inputs = inputs.to(device)
+            labels = labels.to(device)
+            lengths = lengths.to(device)
 			# EX9
 
             # Step 2 - forward pass: y' = model(x)
             if model.__class__.__name__ in ['BaselineDNN', 'LSTM']:
-            	outputs = model(inputs, lengths)
-        	else:
-            	outputs = model(inputs)  # EX9
+                outputs = model(inputs, lengths)
+            else: 
+                outputs = model(inputs)  # EX9
+
+
+                
 
             # Step 3 - compute loss.
             # We compute the loss only for inspection (compare train/test loss)
             # because we do not actually backpropagate in test time
             try:
-            loss = loss_function(outputs, labels)
-        	except ValueError:
+                loss = loss_function(outputs, labels)
+            except ValueError:
             	# fix labels for 'BCEWithLogitsLoss' loss function
-            	bin_labels = torch.nn.functional.one_hot(labels.long(), num_classes=2)
-            	loss = loss_function(outputs, bin_labels.float())   # EX9
+                bin_labels = torch.nn.functional.one_hot(labels.long(), num_classes=2)
+                loss = loss_function(outputs, bin_labels.float())   # EX9
 
             # Step 4 - make predictions (class = argmax of posteriors)
             predicted = torch.argmax(outputs, 1)  # EX9
 
             # Step 5 - collect the predictions, gold labels and batch loss
             y_pred.extend(predicted.cpu().numpy())
-			y.extend(labels.cpu().numpy()) # EX9
+            y.extend(labels.cpu().numpy()) # EX9
 
             running_loss += loss.data.item()
 

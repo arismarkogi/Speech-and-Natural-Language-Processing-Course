@@ -38,14 +38,27 @@ class BaselineDNN(nn.Module):
         if not trainable_emb:
             self.embeddings = self.embeddings.from_pretrained(torch.Tensor(embeddings), freeze = True)
         # EX4
+        
 
+
+        # Aris' code 
+        self.linear = nn.Linear(2 * dim, 2*dim)
+        self.relu = nn.ReLU()  
+        self.output = nn.Linear(2 * dim, output_size)
+
+
+
+        #Kostis' code 
+        """
         # 4 - define a non-linear transformation of the representations
         self.linear = nn.Linear(dim, 1000)
         self.relu = nn.ReLU()  # EX5
+        
 
         # 5 - define the final Linear layer which maps
         # the representations to the classes
         self.output = nn.Linear(1000, output_size)  # EX5
+        """
 
     def forward(self, x, lengths):
         """
@@ -55,7 +68,10 @@ class BaselineDNN(nn.Module):
         Returns: the logits for each class
 
         """
-
+        
+        #Code for LabPrep 
+        
+        """
         # 1 - embed the words, using the embedding layer
         embeddings = self.embeddings(x)  # EX6
 
@@ -71,6 +87,30 @@ class BaselineDNN(nn.Module):
         logits = self.output(representations)  # EX6
 
         return logits
+
+        """
+
+        # Code for main part
+
+        # embed the words, using the embedding layer
+        embeddings = self.embeddings(x) 
+        
+        # Compute mean pooling
+        mean_pooling = torch.mean(embeddings, dim=1)
+
+        # Compute max pooling
+        max_pooling, _ = torch.max(embeddings, dim=1)
+
+        # Concatenate mean pooling and max pooling
+        representations = torch.cat((mean_pooling, max_pooling), dim=1)
+
+        # Transform the representations
+        representations = self.relu(self.linear(representations))
+
+        logits = self.output(representations)
+        
+        return logits
+
 
 
 class LSTM(nn.Module):
