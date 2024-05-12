@@ -41,7 +41,7 @@ class BaselineDNN(nn.Module):
         
 
 
-        # Aris' code 
+        # Aris' code   1ο Ερώτημα
         self.linear = nn.Linear(2 * dim, 2*dim)
         self.relu = nn.ReLU()  
         self.output = nn.Linear(2 * dim, output_size)
@@ -90,7 +90,7 @@ class BaselineDNN(nn.Module):
 
         """
 
-        # Code for main part
+        # Code for main part 1ο Ερώτημα
 
         # embed the words, using the embedding layer
         embeddings = self.embeddings(x) 
@@ -127,7 +127,7 @@ class LSTM(nn.Module):
         embeddings = np.array(embeddings)
         num_embeddings, dim = embeddings.shape
 
-        self.embeddings = nn.Embedding(num_embeddings, dim)
+        self.embeddings = nn.Embedding(num_embeddings, embedding_dim=self.hidden_size)
         self.output_size = output_size
 
         self.lstm = nn.LSTM(dim, hidden_size=self.hidden_size,
@@ -142,9 +142,10 @@ class LSTM(nn.Module):
     def forward(self, x, lengths):
         batch_size, max_length = x.shape
         embeddings = self.embeddings(x)
+        
+
         X = torch.nn.utils.rnn.pack_padded_sequence(
             embeddings, lengths, batch_first=True, enforce_sorted=False)
-
         ht, _ = self.lstm(X)
 
         # ht is batch_size x max(lengths) x hidden_dim
@@ -152,8 +153,29 @@ class LSTM(nn.Module):
 
         # pick the output of the lstm corresponding to the last word
         # TODO: Main-Lab-Q2 (Hint: take actual lengths into consideration)
-        representations = ...
+        
+        # pick the output of the LSTM corresponding to the last word
+        
+        representations = []
+        for i, length in enumerate(lengths):
+        # Calculate the index of the last word in the sequence
+            last_index = length - 1 if length <= max_length else max_length - 1
+            # Get the hidden state corresponding to the last word and append to list
+            representations.append(ht[i, last_index, :])
+
+        # Stack the representations into a single tensor
+        representations = torch.stack(representations)
+        
+
 
         logits = self.linear(representations)
+        
+        """
+        representations = torch.zeros(batch_size, self.representation_size).float()
+        for i in range(lengths.shape[0]):
+            last = lengths[i] - 1 if lengths[i] <= max_length else max_length - 1
+            representations[i] = ht[i, last, :]
 
+        logits = self.linear(representations)
+        """
         return logits

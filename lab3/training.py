@@ -45,7 +45,8 @@ def train_dataset(_epoch, dataloader, model, loss_function, optimizer):
         inputs = inputs.to(device)
         labels = labels.to(device)
         lengths = lengths.to(device)  # EX9
-       
+
+      
         # Step 1 - zero the gradients
         # Remember that PyTorch accumulates gradients.
         # We need to clear them out before each batch!

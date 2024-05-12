@@ -78,6 +78,7 @@ class SentenceDataset(Dataset):
                 label = 1
                 length = 4
             """
+        
         # Tokenize sentence
         example = self.tokenized_data[index]
 
@@ -97,5 +98,6 @@ class SentenceDataset(Dataset):
         label = self.labels[index]
 
         # Get length
-        length = len(example)
+        length  = len([x for x in example_tensor if x != 0])
+
         return example_tensor, label, length

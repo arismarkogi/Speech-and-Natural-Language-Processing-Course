@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 import torch
 from torch.utils.data import DataLoader
 from early_stopper import EarlyStopper
-
+from attention import SimpleSelfAttentionModel, MultiHeadAttentionModel, TransformerEncoderModel
 
 from config import EMB_PATH
 from dataloading import SentenceDataset
@@ -38,7 +38,7 @@ EMB_DIM = 50
 
 EMB_TRAINABLE = False
 BATCH_SIZE = 128
-EPOCHS = 20
+EPOCHS = 50
 DATASET = "MR"  # options: "MR", "Semeval2017A"
 
 # if your computer has a CUDA compatible gpu use it, otherwise use the cpu
@@ -88,8 +88,9 @@ test_loader = DataLoader(test_set, batch_size=BATCH_SIZE,shuffle=True)  # EX7
 #############################################################################
 
 #model = BaselineDNN(output_size= n_classes, embeddings=embeddings, trainable_emb=EMB_TRAINABLE)# EX8
-
-model = LSTM(output_size=n_classes, embeddings=embeddings, trainable_emb=EMB_TRAINABLE, bidirectional=False)
+n_head=12
+n_layer=12
+model = TransformerEncoderModel(output_size=n_classes, embeddings=embeddings, max_length=100, n_head=n_head, n_layer=n_layer)
 
 # move the mode weight to cpu or gpu
 model.to(DEVICE)
@@ -120,6 +121,7 @@ train_loader, val_loader = torch_train_val_split(train_set, BATCH_SIZE, BATCH_SI
 save_path = f'./trained_models/best_{model.__class__.__name__}_{DATASET}_embdim{EMB_DIM}.pt'
 early_stop = EarlyStopper(model, save_path, patience=5)
 
+num_epochs = 0
 
 for epoch in range(1, EPOCHS + 1):
     # train the model for one epoch
@@ -163,12 +165,13 @@ for epoch in range(1, EPOCHS + 1):
 
     if early_stop.early_stop(val_loss):
         print('early stopping ...')
+        num_epochs = epoch
         break
 
     model.load_state_dict(torch.load(save_path))
 
 
-epochs = np.arange(1, EPOCHS + 1)
+epochs = np.arange(1, int(num_epochs + 1))
 
 # Plotting train and test metrics together for each type of score
 plt.figure(figsize=(10, 6))
@@ -183,7 +186,7 @@ plt.plot(epochs, val_accuracy_list, label='Val Accuracy', color='green')
 
 plt.xlabel('Number of Epochs')
 plt.ylabel('Accuracy')
-plt.title('Train, Test, Val Accuracy over Epochs, MR dataset')
+plt.title(f'Train, Test, Val Accuracy over Epochs, MR dataset, n_head={n_head}, n_layer={n_layer}')
 plt.legend()
 plt.grid(True)
 plt.show()
@@ -199,7 +202,7 @@ plt.plot(epochs, val_f1_score_list, label='Val F1-Score', color='green')
 
 plt.xlabel('Number of Epochs')
 plt.ylabel('F1-Score')
-plt.title('Train, Test, Val F1-Score over Epochs, MR dataset')
+plt.title(f'Train, Test, Val F1-Score over Epochs, MR dataset, n_head={n_head}, n_layer={n_layer}')
 plt.legend()
 plt.grid(True)
 plt.show()
@@ -215,7 +218,7 @@ plt.plot(epochs, val_recall_list, label='Val Recall', color='green')
 
 plt.xlabel('Number of Epochs')
 plt.ylabel('Recall')
-plt.title('Train, Test, Val Recall over Epochs, MR dataset')
+plt.title(f'Train, Test, Val Recall over Epochs, MR dataset, n_head={n_head}, n_layer={n_layer}')
 plt.legend()
 plt.grid(True)
 plt.show()

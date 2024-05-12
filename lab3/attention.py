@@ -69,7 +69,8 @@ class SimpleSelfAttentionModel(nn.Module):
         self.ln2 = nn.LayerNorm(dim)
 
         # TODO: Main-lab-Q3 - define output classification layer
-        self.output = ...
+        self.output = nn.Linear(dim, output_size)
+
 
     def forward(self, x):
         B, T = x.shape
@@ -80,7 +81,7 @@ class SimpleSelfAttentionModel(nn.Module):
         x = x + self.ffwd(self.ln2(x))
 
         # TODO: Main-lab-Q3 - avg pooling to get a sentence embedding
-        x = ...  # (B,C)
+        x = torch.mean(x, dim=1)  # (B,C)
 
         logits = self.output(x)  # (C,output)
         return logits
@@ -93,7 +94,7 @@ class MultiHeadAttention(nn.Module):
         super().__init__()
         self.heads = nn.ModuleList([Head(head_size, n_embd)
                                     for _ in range(num_heads)])
-        self.proj = nn.Linear(n_embd, n_embd)
+        self.proj = nn.Linear(num_heads * head_size, n_embd)  # Adjust linear projection
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
@@ -112,10 +113,45 @@ class MultiHeadAttentionModel(nn.Module):
         # `MultiHeadAttention` will be utilized for the self-attention module here
         ...
 
-    def forward(self, x):
-        ...
+        self.n_head = n_head
+        self.max_length = max_length
 
-        logits = ...
+        embeddings = np.array(embeddings)
+        num_embeddings, dim = embeddings.shape
+
+        head_size = dim // self.n_head  # Calculate head_size
+
+        self.token_embedding_table = nn.Embedding(num_embeddings, dim)
+        self.token_embedding_table = self.token_embedding_table.from_pretrained(
+            torch.Tensor(embeddings), freeze=True)
+        self.position_embedding_table = nn.Embedding(self.max_length, dim)
+
+        self.mha = MultiHeadAttention(num_heads=n_head, head_size=head_size, n_embd=dim)
+        self.ffwd = FeedFoward(dim)
+        self.ln1 = nn.LayerNorm(dim)
+        self.ln2 = nn.LayerNorm(dim)
+
+        # Output classification layer
+        self.output = nn.Linear(dim, output_size)
+
+    def forward(self, x):
+        
+        B, T = x.shape
+        tok_emb = self.token_embedding_table(x)  # (B,T,C)
+        pos_emb = self.position_embedding_table(torch.arange(T))  # (T,C)
+        x = tok_emb + pos_emb  # (B,T,C)
+        
+        # Perform multi-head self-attention
+        x = self.mha(x)
+
+        x = x + self.ffwd(self.ln1(x))
+        x = x + self.ffwd(self.ln2(x))
+
+        # Average pooling to get a sentence embedding
+        x = torch.mean(x, dim=1)  # (B,C)
+
+        logits = self.output(x)  # (B,output_size)
+    
         return logits
 
 
@@ -144,19 +180,41 @@ class TransformerEncoderModel(nn.Module):
         # TODO: Main-Lab-Q5 - define the model
         # Hint: it will be similar to `MultiHeadAttentionModel` but now
         # there are blocks of MultiHeadAttention modules as defined below
-        ...
+        self.n_head = n_head
+        self.max_length = max_length
 
-        num_embeddings, dim = ...
+
+        embeddings = np.array(embeddings)
+        num_embeddings, dim = embeddings.shape
 
         head_size = dim // self.n_head
+
+        self.token_embedding_table = nn.Embedding(num_embeddings, dim)
+        self.token_embedding_table = self.token_embedding_table.from_pretrained(
+            torch.Tensor(embeddings), freeze=True)
+        self.position_embedding_table = nn.Embedding(self.max_length, dim)
+
         self.blocks = nn.Sequential(
             *[Block(n_head, head_size, dim) for _ in range(n_layer)])
         self.ln_f = nn.LayerNorm(dim)  # final layer norm
 
-        self.output = ...
+        self.output = nn.Linear(dim, output_size)
 
     def forward(self, x):
-        ...
 
-        logits = ...
+        B, T = x.shape
+        tok_emb = self.token_embedding_table(x)  # (B,T,C)
+        pos_emb = self.position_embedding_table(torch.arange(T))  # (T,C)
+        x = tok_emb + pos_emb  # (B,T,C)
+        # Pass input through the transformer encoder blocks
+        x = self.blocks(x)
+
+        # Apply layer normalization
+        x = self.ln_f(x)
+
+        # Average pooling to get sentence representation
+        x = torch.mean(x, dim=1)
+
+        # Classify the sentence representation
+        logits = self.output(x)
         return logits

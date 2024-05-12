@@ -7,8 +7,8 @@ from training import get_metrics_report
 # DATASET = 'MR'
 # PRETRAINED_MODEL = 'siebert/sentiment-roberta-large-english'
 
-DATASET = 'Semeval2017A'
-PRETRAINED_MODEL = 'cardiffnlp/twitter-roberta-base-sentiment'
+DATASET = 'MR'
+PRETRAINED_MODEL = 'juliensimon/reviews-sentiment-analysis'
 
 
 LABELS_MAPPING = {
@@ -16,11 +16,30 @@ LABELS_MAPPING = {
         'POSITIVE': 'positive',
         'NEGATIVE': 'negative',
     },
+    'distilbert-base-uncased-finetuned-sst-2-english':{
+        'POSITIVE': 'positive',
+        'NEGATIVE': 'negative',
+    },
+    'juliensimon/reviews-sentiment-analysis':{
+        'LABEL_1': 'positive',
+        'LABEL_0': 'negative',
+    },
     'cardiffnlp/twitter-roberta-base-sentiment': {
         'LABEL_0': 'negative',
         'LABEL_1': 'neutral',
         'LABEL_2': 'positive',
-    }
+    },
+   'finiteautomata/bertweet-base-sentiment-analysis':{
+       'NEG': 'negative',
+       'NEU': 'neutral',
+       'POS': 'positive',
+   },
+   'ProsusAI/finbert':{
+       'negative': 'negative',
+       'neutral': 'neutral',
+       'positive': 'positive',
+   }
+   
 }
 
 if __name__ == '__main__':
@@ -45,7 +64,8 @@ if __name__ == '__main__':
     y_pred = []
     for x in tqdm(X_test):
         # TODO: Main-lab-Q6 - get the label using the defined pipeline 
-        label = ...        
+        result = sentiment_pipeline(x)
+        label = result[0]['label']     
         y_pred.append(LABELS_MAPPING[PRETRAINED_MODEL][label])
 
     y_pred = le.transform(y_pred)
