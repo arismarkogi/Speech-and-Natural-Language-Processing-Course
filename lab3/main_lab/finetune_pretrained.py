@@ -6,8 +6,10 @@ from sklearn.preprocessing import LabelEncoder
 from utils.load_datasets import load_MR, load_Semeval2017A
 
 
+models_for_MR = ['siebert/sentiment-roberta-large-english', 'distilbert-base-uncased-finetuned-sst-2-english',  'juliensimon/reviews-sentiment-analysis']
+models_for_Semeval = ['cardiffnlp/twitter-roberta-base-sentiment', 'finiteautomata/bertweet-base-sentiment-analysis','ProsusAI/finbert']
 DATASET = 'MR'  # 'MR' or 'Semeval2017A'
-PRETRAINED_MODEL = 'bert-base-cased'
+PRETRAINED_MODEL = 'siebert/sentiment-roberta-large-english'
 
 
 metric = evaluate.load("accuracy")
